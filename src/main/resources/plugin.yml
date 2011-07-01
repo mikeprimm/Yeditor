@@ -1,0 +1,12 @@
+name: Yeditor
+main: me.samkio.yedit.Yeditor
+version: 1.2.MRP
+commands:
+  yedit:
+    description: Yeditor Commands.
+    usage: /<command>
+  yt:
+    description: Yeditor Commands.
+    usage: /<command>
+
+
