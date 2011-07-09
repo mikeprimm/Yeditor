@@ -13,18 +13,22 @@
 /*    */   {
 /* 18 */     if ((args[0].equalsIgnoreCase("add")) && (args.length == 3)) {
 /* 19 */       boolean added = this.functions.addPlayer(args[1], args[2]);
-/* 20 */       if (added)
+/* 20 */       if (added) {
 /* 21 */         sender.sendMessage(ChatColor.AQUA + "[YEDIT]" + ChatColor.GREEN + 
 /* 22 */           " Player:" + args[1] + " sucessfully added.");
+				 Yeditor.doPermissionsReload(sender);
+               }
 /*    */       else
 /* 24 */         sender.sendMessage(ChatColor.AQUA + "[YEDIT]" + ChatColor.RED + 
 /* 25 */           " An error has occued. Check log.");
 /*    */     }
 /* 27 */     else if ((args[0].equalsIgnoreCase("modify")) && (args.length == 3)) {
 /* 28 */       boolean added = this.functions.addPlayer(args[1], args[2]);
-/* 29 */       if (added)
+/* 29 */       if (added) {
 /* 30 */         sender.sendMessage(ChatColor.AQUA + "[YEDIT]" + ChatColor.GREEN + 
 /* 31 */           " Player:" + args[1] + " sucessfully modified.");
+                 Yeditor.doPermissionsReload(sender);
+               }
 /*    */       else
 /* 33 */         sender.sendMessage(ChatColor.AQUA + "[YEDIT]" + ChatColor.RED + 
 /* 34 */           " An error has occued. Check log.");
@@ -35,9 +39,11 @@
 /* 39 */       if (exsists) {
 /* 40 */         delete = this.functions.delPlayer(args[1]);
 /*    */       }
-/* 42 */       if (delete)
+/* 42 */       if (delete) {
 /* 43 */         sender.sendMessage(ChatColor.AQUA + "[YEDIT]" + ChatColor.GREEN + 
 /* 44 */           " Player:" + args[1] + " sucessfully deleted.");
+                 Yeditor.doPermissionsReload(sender);
+               }
 /* 45 */       else if (!exsists)
 /* 46 */         sender.sendMessage(ChatColor.AQUA + "[YEDIT]" + ChatColor.RED + 
 /* 47 */           " Player does not exsist.");
@@ -46,13 +52,26 @@
 /* 50 */           " An error has occued. Check log.");
 /*    */       }
 /*    */     }
+             else if(args[0].equalsIgnoreCase("autoreload")) {
+            	 if(args.length == 1) {
+            	 }
+            	 else if(args[1].equals("true")) {
+            		 Yeditor.do_reload = true;
+            	 }
+            	 else if(args[1].equals("false")) {
+            		 Yeditor.do_reload = false;
+            	 }
+        		 sender.sendMessage("auto-reload: " + Yeditor.do_reload);
+             }
 /* 53 */     else if ((args[0].equalsIgnoreCase("help")) || 
 /* 54 */       (args[0].equalsIgnoreCase("?"))) {
-/* 55 */       sender.sendMessage(ChatColor.AQUA + "[YEDIT] -Help- Plugin by Samkio:");
+/* 55 */       sender.sendMessage(ChatColor.AQUA + "[YEDIT] -Help- Plugin by Samkio (updated by mikeprimm):");
 /* 56 */       sender.sendMessage(ChatColor.AQUA + "[YEDIT]" + ChatColor.WHITE + 
 /* 57 */         " /yt add <player> <group>");
 /* 58 */       sender.sendMessage(ChatColor.AQUA + "[YEDIT]" + ChatColor.WHITE + 
 /* 59 */         " /yt modify <player> <group>");
+/*    */       sender.sendMessage(ChatColor.AQUA + "[YEDIT]" + ChatColor.WHITE + 
+/* 59 */         " /yt autoreload <true|false>");
 /*    */     } else {
 /* 61 */       sender.sendMessage(ChatColor.AQUA + "[YEDIT]" + ChatColor.RED + 
 /* 62 */         " Bad Syntax. /yt help.");

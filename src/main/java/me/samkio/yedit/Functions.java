@@ -72,7 +72,14 @@
 /*  89 */     Map users = (Map)this.data.get("users");
 /*  90 */     if (users == null)
 /*  91 */       users = new HashMap();
-/*  92 */     Map userData = (Map)users.get(player);
+              Map userData = null;
+              player = player.toLowerCase();
+			  for(Object o : users.keySet()) {
+				  if(player.equalsIgnoreCase((String) o)) {
+					  userData = (Map)users.get(o);
+					  player = (String)o;
+				  }
+			  }
 /*  93 */     if (userData == null) {
 /*  94 */       userData = new HashMap();
 /*     */     }
@@ -93,7 +100,14 @@
 /* 112 */     Map users = (Map)this.data.get("users");
 /* 113 */     if (users == null)
 /* 114 */       users = new HashMap();
-/* 115 */     Map userData = (Map)users.get(player);
+              Map userData = null;
+              player = player.toLowerCase();
+              for(Object o : users.keySet()) {
+                if(player.equalsIgnoreCase((String) o)) {
+                	userData = (Map)users.get(o);
+                	player = (String)o;
+                }
+              }
 /*     */ 
 /* 117 */     return userData != null;
 /*     */   }
@@ -105,7 +119,14 @@
 /* 127 */     Map users = (Map)this.data.get("users");
 /* 128 */     if (users == null)
 /* 129 */       users = new HashMap();
-/* 130 */     Map userData = (Map)users.get(player);
+              Map userData = null;
+              player = player.toLowerCase();
+              for(Object o : users.keySet()) {
+                if(player.equalsIgnoreCase((String) o)) {
+                  userData = (Map)users.get(o);
+  	              player = (String)o;
+  	            }
+              }
 /* 131 */     if (userData == null) return false;
 /* 132 */     users.remove(player);
 /* 133 */     this.data.put("users", users);
