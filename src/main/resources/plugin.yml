@@ -1,6 +1,6 @@
 name: Yeditor
 main: me.samkio.yedit.Yeditor
-version: 1.2.MRP
+version: 1.2.MRP.1
 depend: [ Permissions ]
 commands:
   yedit:
